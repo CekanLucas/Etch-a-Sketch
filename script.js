@@ -1,4 +1,5 @@
 const btn = document.querySelector('#clickCreateElement');
+
 $(document).ready( function() {
   const container = document.getElementById('container')
   
@@ -12,10 +13,24 @@ $(document).ready( function() {
     
     const sqr = document.createElement('div');
     sqr.classList.add('column');
-    sqr.classList.add('sqr');
+    sqr.classList.add('square');
+    sqr.cloneNode()
 
-    row.appendChild(sqr)
-    container.appendChild(row)
+    row.appendChild(sqr);
+    
+    const size = 16;
+    let i = size;
+    while (i>0){
+      const newRow = row.cloneNode();
+      let j = size;
+      while (j>0){
+        const newSqr = sqr.cloneNode();
+        newRow.appendChild(newSqr);
+        j--;
+      }
+      container.appendChild(newRow);
+      i--;
+    }
     console.log('test', container)
     e.target.style.background = 'red !important';
   });

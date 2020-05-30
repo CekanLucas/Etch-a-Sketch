@@ -9,9 +9,7 @@
   box-sizing: border-box;
 }
 .square {
-  height: 10vh;
   border: 2px solid red;
   background-color: rgba(30, 10, 120, 0.5);
   box-sizing: border-box;
-  margin: 1em;
 }
