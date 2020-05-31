@@ -1,38 +1,48 @@
 const btn = document.querySelector('#clickCreateElement');
 
-$(document).ready( function() {
-  const container = document.getElementById('container')
-  
-  btn.onclick = e => console.log('row');
-  
-  btn.addEventListener('mouseleave', function (e) {
-    const row = document.createElement('div');
-    // row.setAttribute('id','continer');
-    row.classList.add('columns');
-    row.classList.add('row');
-    
-    const sqr = document.createElement('div');
-    sqr.classList.add('column');
-    sqr.classList.add('square');
-    sqr.cloneNode()
+const drawGrid = function() {
+  console.log('called')
+  // const container = document.createElement('div')
+  // container.setAttribute('id', 'container')
 
-    row.appendChild(sqr);
-    
-    const size = 16;
-    let i = size;
-    while (i>0){
-      const newRow = row.cloneNode();
-      let j = size;
-      while (j>0){
-        const newSqr = sqr.cloneNode();
-        newRow.appendChild(newSqr);
-        j--;
-      }
-      container.appendChild(newRow);
-      i--;
+  const row = document.createElement('div');
+  row.classList.add('columns');
+  row.classList.add('row');
+  
+  const sqr = document.createElement('div');
+  sqr.classList.add('column');
+  sqr.classList.add('square');
+  sqr.cloneNode();
+  
+  row.appendChild(sqr);
+  
+  const size = 16;
+  let i = size;
+  while (i>0){
+    const newRow = row.cloneNode();
+    let j = size;
+    while (j>0){
+      const newSqr = sqr.cloneNode();
+      newSqr.addEventListener('mouseleave',e=>e.target.style.background = 'green')
+      newRow.appendChild(newSqr);
+      j--;
     }
-    console.log('test', container)
-    e.target.style.background = 'red !important';
+    container.appendChild(newRow);
+    i--;
+  }
+}
+
+btn.onclick = e => {
+  const currentContainer = document.getElementById('container');
+  currentContainer.innerHTML = '';
+  drawGrid();
+};
+
+$(document).ready( function() {
+  drawGrid();
+  
+  btn.addEventListener('mouseleave', function(e) {
+
   });
 })
 
