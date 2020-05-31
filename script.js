@@ -1,22 +1,21 @@
 const btn = document.querySelector('#clickCreateElement');
 
-const drawGrid = function() {
+const drawGrid = function(size = 16) {
   console.log('called')
   // const container = document.createElement('div')
   // container.setAttribute('id', 'container')
 
   const row = document.createElement('div');
-  row.classList.add('columns');
+  // row.classList.add('columns');
   row.classList.add('row');
   
   const sqr = document.createElement('div');
-  sqr.classList.add('column');
+  // sqr.classList.add('column');
   sqr.classList.add('square');
   sqr.cloneNode();
   
   row.appendChild(sqr);
   
-  const size = 16;
   let i = size;
   while (i>0){
     const newRow = row.cloneNode();
@@ -32,10 +31,16 @@ const drawGrid = function() {
   }
 }
 
+const rangeSize = document.getElementById('range-size');
+const counterSize = document.getElementById('counter-size');
+rangeSize.addEventListener( 'input', function(e) {
+  counterSize.textContent = rangeSize.value
+})
+
 btn.onclick = e => {
   const currentContainer = document.getElementById('container');
   currentContainer.innerHTML = '';
-  drawGrid();
+  drawGrid(rangeSize.value);
 };
 
 $(document).ready( function() {

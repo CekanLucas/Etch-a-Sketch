@@ -1,19 +1,21 @@
 #container{
-  margin: 2em 0;
-}
-
-.row {
+  margin: 2em auto;
+  width: 80vh;
+  height: 70vh;
   display: flex;
-  width: 100%;
-  box-sizing: border-box;;
+  flex-direction: column;
+}
+.row {
   background-color: rgba(30, 10, 120, 0.1);
+  display: flex;
+  flex-grow: 1;
 }
 .square {
   border: 1px solid transparent;
+  flex-grow: 1;
+  flex-wrap: nowrap;
 }
 .square:hover{
   background-color: red;
   border: 1px solid transparent;
-  height: auto;
-  width: auto;
 }
