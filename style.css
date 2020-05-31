@@ -1,9 +1,10 @@
 #container{
   margin: 2em auto;
   width: 80vh;
-  height: 70vh;
+  height: 90vh;
   display: flex;
   flex-direction: column;
+  border: 1px solid goldenrod;
 }
 .row {
   background-color: rgba(30, 10, 120, 0.1);
@@ -18,4 +19,7 @@
 .square:hover{
   background-color: red;
   border: 1px solid transparent;
+}
+#number-input{
+  color: azure
 }
